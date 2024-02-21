@@ -14,7 +14,7 @@ bool isEven(int value){return value%2==0;}
 </details>
 
 ```cpp
-bool isEven2(int value){return (value & 1) == 0;}
+bool isEven(int value){return (value & 1) == 0;}
 ```
 
 С точки зрения читабельности первый вариант (value % 2) я считаю более предпочтительным. Взятие остатка от деления - 
