@@ -190,12 +190,7 @@ class RingBuffer {
     using iterator = RingBufferIterator<T, N>;
     using const_iterator = RingBufferConstIterator<T, N>;
     std::list<T> buffer;
-    size_type head = 0;
-    size_type tail = 0;
     size_type count = 0;
-    enum class iterator_type {
-        Inc, End, Default
-    };
 public:
     friend class RingBufferIterator<T, N>;
 
@@ -260,8 +255,6 @@ public:
 
     void clear() {
         buffer.clear();
-        head = 0;
-        tail = 0;
         count = 0;
     }
 
@@ -278,15 +271,15 @@ public:
     }
 
     iterator end() {
-        return iterator(buffer, buffer.end(), iterator_type::End);
+        return iterator(buffer, buffer.end(), iterator::iterator_type::End);
     }
 
     const_iterator end() const {
-        return const_iterator(buffer, buffer.cend(), iterator_type::End);
+        return const_iterator(buffer, buffer.cend(), const_iterator::iterator_type::End);
     }
 
     const_iterator cend() const {
-        return const_iterator(buffer, buffer.cend(), iterator_type::End);
+        return const_iterator(buffer, buffer.cend(), const_iterator::iterator_type::End);
     }
 };
 

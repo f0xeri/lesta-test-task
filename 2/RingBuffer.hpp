@@ -214,6 +214,7 @@ public:
             ++count;
         }
     }
+
     void pop_front() {
         if (count > 0) {
             head = (head + 1) % N;
